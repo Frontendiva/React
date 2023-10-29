@@ -1,7 +1,12 @@
 import {api} from '../../api';
 
-export  const getPhotos = async () => {
-    const response = await api.get("/photos");
+export  const getPhotos = async (page, limit) => {
+    const response = await api.get("/photos",{
+        params: {
+            '__photo': page,
+            '_limit': limit,
+        },
+    });
 
     return response.data;
 

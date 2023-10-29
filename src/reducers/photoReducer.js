@@ -16,7 +16,7 @@ import {
       case FETCH_PHOTOS_REQUEST:
         return { ...state, loading: true, error: null };
       case FETCH_PHOTOS_SUCCESS:
-        return { ...state, loading: false, photos: action.payload, error: null };
+        return { ...state, loading: false, photos: [...state.photos, ...action.payload], error: null };
       case FETCH_PHOTOS_FAILURE:
         return { ...state, loading: false, error: action.payload };
       default:

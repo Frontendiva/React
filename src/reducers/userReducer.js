@@ -16,7 +16,7 @@ import {
       case FETCH_USER_REQUEST:
         return { ...state, loading: true, error: null };
       case FETCH_USER_SUCCESS:
-        return { ...state, loading: false, users: action.payload, error: null };
+        return { ...state, loading: false, users: [...state.users, ...action.payload], error: null };
       case FETCH_USER_FAILURE:
         return { ...state, loading: false, error: action.payload };
       default:

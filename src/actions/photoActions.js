@@ -4,11 +4,11 @@ export const FETCH_PHOTOS_SUCCESS = 'FETCH_PHOTOS_SUCCESS';
 export const FETCH_PHOTOS_FAILURE = 'FETCH_PHOTOS_FAILURE';
 
 
-export const fetchPhotos = () => {
+export const fetchPhotos = (photo, limit = 3) => {
   return async dispatch => {
     dispatch({ type: FETCH_PHOTOS_REQUEST });
     try {
-      const photos = await api.getPhotos();
+      const photos = await api.getPhotos(photo, limit);
       dispatch({
         type: FETCH_PHOTOS_SUCCESS,
         payload: photos

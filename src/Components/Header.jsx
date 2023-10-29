@@ -4,7 +4,7 @@ import logo from "./logo192.png";
 
 
 export default class Header extends Component{
-    
+
 
     render() {
         return (
@@ -12,8 +12,8 @@ export default class Header extends Component{
             <Navbar  sticky="top" collapseOnSelect expand="md" bg="dark" variant="dark">
                 <Container>
                     <NavbarBrand href="/">
-                        <img 
-                        src={logo} 
+                        <img
+                        src={logo}
                         height="30"
                         width="30"
                         className="d-inline-block align-top"
@@ -22,16 +22,15 @@ export default class Header extends Component{
                     <Navbar.Toggle aria-controls="responsite-navbar-nav"/>
                     <Navbar.Collapse id="responsite-navbar-nav">
                         <Nav className="me-auto">
-                            <Nav.Link href="/">Home </Nav.Link>
-                            <Nav.Link href="/about">About us </Nav.Link>
-                            <Nav.Link href="/contacts">Contacts </Nav.Link>
-                            <Nav.Link href="/blog">Blog </Nav.Link>
+                            <Nav.Link href="/">Articles </Nav.Link>
+                            <Nav.Link href="/users">Users </Nav.Link>
+                            <Nav.Link href="/photos">Photos </Nav.Link>
                         </Nav>
                             <Form className='d-flex'>
-                                <FormControl 
-                                type="text" 
-                                placeholder="Search" 
-                                value="Поиск" 
+                                <FormControl
+                                type="text"
+                                placeholder="Search"
+                                value="Поиск"
                                 style={{ marginRight: '10px' }}
                                 />
                                 <Button variant="outline-info"> Search </Button>
@@ -39,7 +38,7 @@ export default class Header extends Component{
                     </Navbar.Collapse>
                 </Container>
             </Navbar>
-        
+
             </>
         )
     }

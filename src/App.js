@@ -1,36 +1,40 @@
-import logo from './logo.svg';
 import './App.css';
-import { Button} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './Components/Header';
-import{ BrowserRouter as Router, Routes, Route,  } from "react-router-dom";
+import {BrowserRouter as Router, Route, Routes,} from "react-router-dom";
 import Home from "./Pages/Home";
-import About from "./Pages/About";
-import Contacts from "./Pages/Contacts";
-import Blog from "./Pages/Blog";
-import { Provider } from 'react-redux';
+import Photos from "./Pages/Photos";
+import UsersPage from "./Pages/UsersPage";
+import {Provider} from 'react-redux';
 import store from './store';
-import { SinglePost } from './Pages/SinglePost';
+import {SinglePost} from './Pages/SinglePost';
+import {SingleUser} from './Pages/singleUser';
+import {SinglePhoto} from './Pages/singlePhoto';
+
+const AppRoutes = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path='/' element={<Home/>}>
+          <Route path='/:id' element={<SinglePost/>}/>
+        </Route>
+        <Route path='/photos' element={<Photos />}>
+          <Route path='/photos/:id' element={<SinglePhoto/>}/>
+        </Route>
+        <Route path='/users' element={<UsersPage/>}>
+          <Route path='/users/:id' element={<SingleUser/>}/>
+        </Route>
+      </Routes>
+    </Router>
+  );
+};
 
 function App() {
   return (
     <Provider store={store}>
-
-      <div>
-        <Header />
-        <Router>
-                    <Routes>
-                        <Route path='/' element={<Home/>}>
-                          <Route path='/:id' element={<SinglePost/>}/>
-                        </Route>
-                        <Route path='/about' element={<About/>}/>
-                        <Route path='/contacts' element={<Contacts/>}/>
-                        <Route path='/blog' element={<Blog/>}/>
-                    </Routes>
-                    </Router>
-            
-      </div>
-      </Provider>
+      <Header />
+      <AppRoutes />
+    </Provider>
   );
 }
 
